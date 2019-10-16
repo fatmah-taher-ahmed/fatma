@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>You are not allowed to access this page</h2>
+<p>
+	{% if not_logged_in %}
+		Please login to gain access.
+	{% else %}
+		This item is not your property.
+	{% endif %}
+</p>
+{% endblock %}
