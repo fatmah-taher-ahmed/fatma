@@ -64,10 +64,7 @@ def run_migrations_online():
             if script.upgrade_ops.is_empty():
                 directives[:] = []
                 logger.info('No changes in schema detected.')
-
-    engine = engine_from_config(config.get_section(config.config_ini_section),
-                                prefix='sqlalchemy.',
-                                poolclass=pool.NullPool)
+    engine = create_engine('postgresql://catalog:password@localhost/catalog')
 
     connection = engine.connect()
     context.configure(connection=connection,
